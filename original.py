@@ -15,7 +15,7 @@ output = app.entrada_pasta + '/' + 'arquivoCRI.txt'
 
 # Lê os parâmetros necessários para montar o txt
 # sheet_name - pega os dados da planilha certa | usecols - informa quais as colunas que devem ser lidas | header=1 usa os nomes da linha 2 como títulos das colunas
-df = pd.read_excel(excel_file, sheet_name='Canal SEC', usecols=[
+df = pd.read_excel(excel_file, sheet_name='Página 1', usecols=[
                    'CRI / CRA', 'IF', 'Data de pagamento', 'Juros PU', 'Amortização PU', 'Saldo Devedor PU', 'Indexador'], header=1, engine='openpyxl')
 
 #### Filtrando para apenas CRIs baseados em IPCA
@@ -33,7 +33,7 @@ print(df)
 with open(output, 'w') as file:
 
     # Escreve o header padrão
-    file.write('CRI  0PUEVCANALSEC            ')
+    file.write('CRI  0PUEVNOMESIMP            ') %ALTERAR NOMESIMP, respeitando o número adequado de caractéres
     hoje = datetime.now().date()
     hoje_formatado = hoje.strftime('%Y%m%d')
     file.write(hoje_formatado)
@@ -113,7 +113,7 @@ with open(output, 'w') as file:
 
 
 #### Filtrando para apenas CRIs baseados em DI
-df = pd.read_excel(excel_file, sheet_name='Canal SEC', usecols=[
+df = pd.read_excel(excel_file, sheet_name='Página 1', usecols=[
                    'CRI / CRA', 'IF', 'Data de pagamento', 'Juros PU', 'Amortização PU', 'Saldo Devedor PU', 'Indexador'], header=1, engine='openpyxl')
 
 df = df[
@@ -207,7 +207,7 @@ print(output)
 
 # Lê os parâmetros necessários para montar o txt
 # sheet_name - pega os dados da planilha certa | usecols - informa quais as colunas que devem ser lidas | header=1 usa os nomes da linha 2 como títulos das colunas
-df = pd.read_excel(excel_file, sheet_name='Canal SEC', usecols=[
+df = pd.read_excel(excel_file, sheet_name='Página 1', usecols=[
                    'CRI / CRA', 'IF', 'Data de pagamento', 'Juros PU', 'Amortização PU', 'Saldo Devedor PU', 'Indexador'], header=1, engine='openpyxl')
 
 #### Filtrando para apenas CRAs baseados em IPCA
@@ -224,7 +224,7 @@ print(df)
 with open(output, 'w') as file:
 
     # Escreve o header padrão
-    file.write('CRA  0PUEVCANALSEC            ')
+    file.write('CRA  0PUEVNOMESIMP            ') %ALTERAR NOMESIMP, respeitando o número adequado de caractéres
     hoje = datetime.now().date()
     hoje_formatado = hoje.strftime('%Y%m%d')
     file.write(hoje_formatado)
@@ -304,7 +304,7 @@ with open(output, 'w') as file:
 
 
 #### Filtrando para apenas CRAs baseados em DI
-df = pd.read_excel(excel_file, sheet_name='Canal SEC', usecols=[
+df = pd.read_excel(excel_file, sheet_name='Página 1', usecols=[
                    'CRI / CRA', 'IF', 'Data de pagamento', 'Juros PU', 'Amortização PU', 'Saldo Devedor PU', 'Indexador'], header=1, engine='openpyxl')
 
 df = df[
@@ -389,4 +389,5 @@ with open(output, 'a') as file:
             file.write('                  ')
             file.write(inteira_formatada_r)
             file.write(fracionaria_formatada_r)
+
             file.write('                                    ')
